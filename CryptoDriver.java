@@ -1,8 +1,9 @@
 import java.util.*;
+import java.io.*;
 
 public class CryptoDriver{
 	
-	public static void main(String[] args){
+	public static void main(String[] args)throws IOException{
 
 //*************************
 	char methodMenu;
@@ -13,6 +14,7 @@ public class CryptoDriver{
 		
 		String encryptFileName = "";
 		String decryptFileName = "";
+		String charStrand = "";
 
 
 		do {
@@ -22,6 +24,8 @@ public class CryptoDriver{
 				case 'e':
 					encryptFileName = console.getEncryptFileName();
 					console.makingTemplate();
+					charStrand = encryption.letterToString(encryptFileName);
+					System.out.println(charStrand); // for testing purposes only
 					break;
 				case 'D':
 				case 'd':
