@@ -80,13 +80,13 @@ public class CryptoDriver{
 		charMatrix [5][5] = sixSix;
 
 		Scanner keyboard = new Scanner (System.in);
-		Encrypt encryption = new Encrypt ();
+		ModelCrypto encryption = new ModelCrypto ();
 		CryptoIO_Console console = new CryptoIO_Console ();
-		CharNumObject temp = new CharNumObject();
 		
 		String encryptFileName = "";
 		String decryptFileName = "";
 		String charStrand = "";
+		String template = "";
 		char methodMenu;
 		char testing = '?';
 		char pass = 'E';
@@ -99,25 +99,10 @@ public class CryptoDriver{
 				case 'e':
 					encryptFileName = console.getEncryptFileName();
 					console.makingTemplate();
+					encryption.getMatrix(charMatrix);
 					charStrand = encryption.letterToString(encryptFileName);
-					System.out.println(charStrand); // for testing purposes only
-					
-
-					for (int i = 0; i < 6; i++){
-						for (int j = 0; j < 6; j++){
-							temp = charMatrix[i][j];
-							if (temp.charInEntry(pass) == true){
-								String num = temp.getNumTriplet(pass);
-								System.out.println(num);
-								System.out.println(" I AM IN charMatrix " + i + "   " + j);
-							}
-							else {
-								System.out.println("character not in matrix entry " + i + "   " + j);
-							}
-						}
-					}
-
-
+					//System.out.println(charStrand); // for testing purposes only
+					template = encryption.addToTemplate(charStrand);
 					break;
 				case 'D':
 				case 'd':
