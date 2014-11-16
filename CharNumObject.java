@@ -22,8 +22,9 @@ public class CharNumObject {
 		entry3 = e3;
 		column = c;
 		row = r;
+	}
 
-	} // constructor for compiling
+	public CharNumObject(){} // constructor for compiling
 
 
 	public char getCharacter (int e) {
@@ -51,6 +52,10 @@ public class CharNumObject {
 		} // closes char3
 		return (row + "" + column + "" + numTriplet);
 	} // closes getNumTriplet
+
+	public boolean charInEntry(char boolCharacter) {
+		return (boolCharacter == character1 || boolCharacter == character2 || boolCharacter == character3);
+	}
 
 
 } // closes charNumObject class
