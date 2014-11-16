@@ -15,7 +15,7 @@ public class CryptoDriver{
 		CharNumObject twoOne = new CharNumObject (2,1,1,'A',2,'r',3,'+');
 		CharNumObject twoTwo = new CharNumObject (2,2,1,'O',2,'j',3,'*');
 		CharNumObject twoThree = new CharNumObject (2,3,1,'C',2,'*',3,'5');
-		CharNumObject twoFour = new CharNumObject (2,3,1,'!',2,'x',3,'S');
+		CharNumObject twoFour = new CharNumObject (2,4,1,'!',2,'x',3,'S');
 		CharNumObject twoFive = new CharNumObject (2,5,1,')',2,'*',3,'U');
 		CharNumObject twoSix = new CharNumObject (2,6,1,'o',2,'*',3,'G');
 		CharNumObject threeOne = new CharNumObject (3,1,1,'l',2,'B',3,'~');
@@ -37,7 +37,7 @@ public class CryptoDriver{
 		CharNumObject fiveFive = new CharNumObject (5,5,1,'J',2,'y',3,'T');
 		CharNumObject fiveSix = new CharNumObject (5,6,1,'2',2,'f',3,'L');
 		CharNumObject sixOne = new CharNumObject (6,1,1,']',2,'*',3,'&');
-		CharNumObject sixTwo = new CharNumObject (6,2,1,'9',2,'6',3,'*');
+		CharNumObject sixTwo = new CharNumObject (6,2,1,'9',2,'b',3,'*');
 		CharNumObject sixThree = new CharNumObject (6,3,1,'X',2,'Y',3,'*');
 		CharNumObject sixFour = new CharNumObject (6,4,1,'*',2,'?',3,'^');
 		CharNumObject sixFive = new CharNumObject (6,5,1,'K',2,'*',3,' ');
@@ -85,8 +85,11 @@ public class CryptoDriver{
 		
 		String encryptFileName = "";
 		String decryptFileName = "";
+		String messageString = "";
 		String charStrand = "";
 		String template = "";
+		String negativeTemplate = "";
+		String fromNegativeTemplate = "";
 		char methodMenu;
 		char testing = '?';
 		char pass = 'E';
@@ -103,10 +106,19 @@ public class CryptoDriver{
 					charStrand = encryption.letterToString(encryptFileName);
 					//System.out.println(charStrand); // for testing purposes only
 					template = encryption.addToTemplate(charStrand);
+					negativeTemplate = encryption.makeNegativeTemplate(template);
+					System.out.println(negativeTemplate); // for testing purposes only
 					break;
 				case 'D':
 				case 'd':
 					decryptFileName = console.getDecryptFileName();
+					console.negativeTemplate();
+					encryption.getMatrix(charMatrix);
+					charStrand = encryption.letterToString(decryptFileName);
+					fromNegativeTemplate = encryption.negativeTemplateDecrypt(charStrand);
+					System.out.println(fromNegativeTemplate); // for testing purposes only
+					messageString = encryption.stringToLetter(fromNegativeTemplate);
+					System.out.println(messageString); // for testing purposes only
 					break;
 				default:
 					System.out.println("invalid, please enter either D or E");
