@@ -10,7 +10,7 @@ public class CharNumObject {
 	int entry1;
 	int entry2;
 	int entry3;
-	char charToRetrieve = '^';
+	char charToRetrieve = ' ';
 	int numTriplet = 0;
 
 	public CharNumObject ( int r, int c, int e1, char c1, int e2, char c2, int e3, char c3) { // constructor
